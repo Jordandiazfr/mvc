@@ -6,7 +6,7 @@ class Model:
     def save_inputs(self, user_input: str):
         self.inputs.append(user_input)
         return True
-    
+     # Les vilaines méthodes statiques, il faut faire attention à l'encapsulation
     @staticmethod
     def modify_inputs(user_input: str) -> str:
         return user_input.upper()
@@ -19,10 +19,10 @@ class Model:
         return True
     
 # ---- View -----
-class View:
+class View: 
+    # à quoi sert ton constructeur puisqu'il ne fait rien? 
     def __init__(self) -> None:
         pass
-    
     @staticmethod
     def get_input():
         user_input = input("Please write something... ")
@@ -40,6 +40,7 @@ class View:
 
 # --- Controller ---- 
 class Controller:
+    # C'est une bonne idée
     def __init__(self, model, view) -> None:
         self.view = view
         self.model = model
@@ -47,6 +48,7 @@ class Controller:
     def manage_inputs(self):     
         for _ in range(2):
             # Tell the view to get inputs
+         
             line = self.view.get_input()       
             if line == 0:
                 raise ValueError("You must write something")  
